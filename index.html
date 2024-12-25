@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Log In</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .form-title img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    .form-control {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .btn-login {
+      background: #ff416c;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .btn-login:hover {
+      background: #e0355e;
+    }
+    .link-section {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    .link-section a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .link-section a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: gray;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="form-container">
+    <div class="form-title">
+      <br>
+
+      <img src="img/logo1.png" alt="Login Icon" style="width: 80px;height: 80px;">
+      <h2>Login</h2>
+    </div>
+    
+   
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" placeholder="Password">
+      </div>
+      
+      <div class="link-section mb-3">
+        <a href="#" class="ms-2" onclick="confirmForget(event)">Lupa kata sandi?
+          <i class="bi bi-arrow-left"></i>
+        </a>
+      </div>
+      <button type="button" class="btn-login" onclick="window.location.href='home.html'">LOG IN</button>
+      <div class="link-section mt-3">
+        Belum punya akun? <a href="daftar.html">Daftar</a>
+      </div>
+    </form>
+    <div class="note">**Langsung Klik pada tombol LOG IN atau Daftar</div>
+  </div>
+</div>
+<script>
+  
+  function confirmForget(event) {
+    event.preventDefault(); // Prevent default link action
+    alert("AAHH MASA SIIH?")
+    
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

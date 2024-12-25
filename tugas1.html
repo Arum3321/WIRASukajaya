@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Tugas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .task-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .task-header {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .task-link {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .task-link i {
+      margin-right: 10px;
+    }
+    .back-button {
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+    }
+    .add-answer-btn {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .add-answer-btn1 {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 20px;
+      font-size: 1rem;
+      width: auto;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .add-answer-btn:hover {
+      background-color: #2563eb;
+    }
+    .add-answer-btn1:hover {
+      background-color: #d32f2f;
+    }
+    .file-input-container {
+      margin-top: 20px;
+    }
+    .file-input-label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Back Button -->
+  <a href="#" class="back-button"><i class="bi bi-arrow-left"></i></a>
+
+  <!-- Task Container -->
+  <div class="task-container">
+    <h5 class="task-header">TUGAS 1</h5>
+    <p>Perkenalan Dasar PMR</p>
+
+    <a href="#" class="task-link">
+      <i class="bi bi-file-earmark"></i> Perkenalan Dasar PMR
+    </a>
+
+    <ol>
+      <li>Bacalah Materi.</li>
+      <li>Kerjakan tugas pertanyaan pada materi.</li>
+      <li>Tulis pada buku catatan.</li>
+      <li>Kirim berupa PDF.</li>
+    </ol>
+
+    <button class="add-answer-btn" id="add-answer-btn">Tambahkan Jawaban</button>
+
+    <!-- File Upload Section -->
+    <div class="file-input-container" id="file-input-container" style="display: none;">
+      <label for="file-upload" class="file-input-label">Pilih file PDF untuk mengirim jawaban:</label>
+      <input type="file" id="file-upload" accept="application/pdf" class="form-control">
+      <button id="submit-file" class="add-answer-btn">Kirim Jawaban</button>
+    </div>
+  </div>
+  
+  <!-- Button Kembali -->
+  <a href="tugas.html" class="add-answer-btn1">Kembali</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+<script>
+  document.getElementById('add-answer-btn').addEventListener('click', function() {
+    // Show file upload input when the button is clicked
+    document.getElementById('file-input-container').style.display = 'block';
+  });
+
+  document.getElementById('submit-file').addEventListener('click', function() {
+    const fileInput = document.getElementById('file-upload');
+    const file = fileInput.files[0];
+    
+    if (file) {
+      if (file.type === 'application/pdf') {
+        alert('File PDF berhasil diupload: ' + file.name);
+        // Here you can add the code to upload the file to the server if needed
+        // For now, just reset the input field
+        fileInput.value = '';
+        document.getElementById('file-input-container').style.display = 'none'; // Hide input again
+      } else {
+        alert('Silakan pilih file PDF.');
+      }
+    } else {
+      alert('Silakan pilih file terlebih dahulu.');
+    }
+  });
+</script>
+
+</body>
+</html>

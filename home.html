@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMR Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+      background-color: #ff416c;
+      color: white;
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .navbar a:hover {
+      color: #ffe5ec;
+    }
+
+    .nav-tabs {
+      background-color: #ffc7d2;
+      padding: 10px 0;
+      border-radius: 5px;
+    }
+
+    .nav-tabs .nav-link {
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: #ff416c;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .banner {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      background: white;
+      padding: 10px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      margin-left: 10px;
+      flex: 1;
+      width: 80%;
+
+    }
+
+    .category-buttons button {
+      background: #ff416c;
+      color: white;
+      border: none;
+      padding: 5px 20px;
+      border-radius: 15px;
+      margin: 5px;
+    }
+
+    .category-buttons button:hover {
+      background: #e0355e;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- Navbar -->
+  <nav class="navbar d-flex align-items-center">
+    <a href="index.html" class="ms-2" onclick="confirmLogout(event)">
+      <i class="bi bi-arrow-left"></i> Logout
+    </a>
+    <div class="d-flex align-items-center ms-auto">
+      <span class="me-2">Halo Arum</span>
+      <!-- Wrap the profile picture with an <a> tag to make it clickable -->
+      <a href="profile.html">
+        <img style="height: 40px; width: 40px;" src="img/profile.jpeg" class="rounded-circle" alt="Profile">
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- Navigation Tabs -->
+  <div class="container mt-3">
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="home.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tugas.html">Tugas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="presensi.html">Presensi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pengumuman.html">Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="nilai.html">Nilai</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Banner -->
+  <div class="container mt-3">
+    <div class="banner">
+      <div>
+        <h4>Bersama PMR Berbakti Merajut Asa</h4>
+      </div>
+      <div class="search-bar">
+        <input type="text" class="form-control" placeholder="Apa yang kamu cari?">
+        <button style="background-color: #007bff;color: rgb(255, 255, 255);margin-left: 15px;" class="btn btn-outline-primary"
+          type="button">Search</button>
+      </div>
+    </div>
+
+  </div>
+  
+
+
+
+  <!-- Category Buttons -->
+  <div class="container text-center category-buttons">
+    <button onclick="changeContent('prestasi', this)">Prestasi</button>
+    <button onclick="changeContent('berita', this)">Berita</button>
+    <button onclick="changeContent('kegiatan', this)">Kegiatan</button>
+  </div>
+
+  <!-- Dynamic Content Grid -->
+  <div class="container mt-3">
+    <div class="row g-3" id="content-grid">
+      <!-- Default Content: Prestasi -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/prestasi1.jpeg" class="card-img-top" alt="Prestasi 1">
+          <div class="card-body">
+            <p class="card-text">PMR Wira SMAN Suka Jaya Juara Umum Wahana Jumpa Prestasi Tingkat Nasional...</p>
+            <a href="#" class="text-decoration-none text-primary"
+              onclick="showDetails('<strong>PMR Wira SMAN Suka Jaya Juara Umum Wahana Jumpa Prestasi Tingkat Nasional</strong><br>Palang Merah Remaja (PMR) SMAN Suka Jaya meraih prestasi yang membanggakan sebagai Juara Umum dalam kegiatan Wahana Jumpa Prestasi Tingkat Nasional yang diselenggarakan dari tanggal 16 – 24 November 2024 secara daring. Pada ajang tersebut tim PMR berhasil meraih Juara 1 dan 2 lomba Pertolongan Pertama, juara 2 dan 3 lomba Smart Volunteer. Wahana Jumpa Prestasi merupakan wahana untuk menumbuhkan jiwa kreatif yang berprestasi dalam kesatuan energi di masa pandemi. Wahana jumpa prestasi juga salah satu program unggulan dari KSR PMI Unit Setempat.')">Baca
+              selengkapnya...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/berita1.jpeg" class="card-img-top" alt="Berita 1">
+          <div class="card-body">
+            <p class="card-text">30 Tim Adu Ketangkasan di Lomba Kecakapan PMR...</p>
+            <a href="#" class="text-decoration-none text-primary"
+              onclick="showDetails('<strong>30 Tim Adu Ketangkasan di Lomba Kecakapan PMR</strong><br>Lomba ini mengambil tema meningkatkan kreatifitas, cakap dan terampil relawan Palang Merah Remaja. Sebanyak 30 tim ambil bagian. Terdiri dari 6 tingkat mula, 13 tingkat madya dan 12 tingkat wira, dengan jumlah peserta mencapai 223 orang. Melalui lomba ini diharapkan relawan dapat menunjukkan kreatifitas, keterampilan dan kecakapan dalam membentuk calon relawan yang peduli tentang 7 prinsip dasar kepalangmerahan. Yaitu peduli tentang kemanusiaan, kesamaan, lingkungan dan lain-lain. Calon relawan tidak hanya cukup dengan peduli, tetapi juga harus memiliki ilmunya. Seperti ilmu pertolongan pertama untuk membantu orang yang mengalami kecelakaan. Tanpa ilmu, dikhawatirkan pertolongan yang diberikan justru bisa menjadi fatal.')">Baca
+              selengkapnya...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/kegiatan1.jpeg" class="card-img-top" alt="Kegiatan 1">
+          <div class="card-body">
+            <p class="card-text">Anggota PMR Wira Ikuti Uji Kecakapan...</p>
+            <a href="#" class="text-decoration-none text-primary"
+              onclick="showDetails('<strong>Anggota PMR Wira Ikuti Uji Kecakapan</strong><br>Sebagai upaya meningkatkan pengetahuan sebagai PMR Wira. Puluhan anggota PMR Wira mengikuti ujian kecakapan. Hal itu untuk menambah pengetahuan dan ketrampilan dalam menanggani bencana. Uji kecakapan tersebut diikuti para peserta Palang Merah Remaja (PMR) Wira. Untuk uji kecakapan yang harus diikuti antara lain materi gerakan PMI, kepemimpinan, pertolongan pertana, kebersihan dan kesehatan, kesehatan remaja, kesiapsiagaan bencana, donor darah. Uji kecakapan tersebut bertujuan untuk mengidentifikasi tingkat pengetahuan dan ketrampilan materi. Kemudian menerapkan tri bakti PMR, memberikan bentuk pengakuan dan penghargaan formal atas kemampuan yang dimiliki anggota.')">Baca
+              selengkapnya...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/prestasi2.jpeg" class="card-img-top" alt="Prestasi 2">
+          <div class="card-body">
+            <p class="card-text">Festival Relawan Patriot, PMR Wira SMAN Suka Jaya Juara Umum...</p>
+            <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Festival Relawan Patriot, PMR Wira SMAN Suka Jaya Juara Umum</strong><br>Palang Merah Remaja (PMR) Wira Satuan SMA Negeri Suka Jaya berhasil meraih predikat juara umum dalam kegiatan Patriot Volunteer Festival tahun 2024 PMR tingkat se-Karisidenan. Dari tiga kategori yang dilombakan, menyabet juara 2 kategori Pendidikan Remaja Sebaya (PRS) yang diraih oleh Nabila Shinta dan Alya Rosadiana. Juara 1 kategori Festival Relawan Duta Patriot diraih oleh Dewi Zulfa Kamila. Hasil perolehan tersebut kontingen PMR Wira Unit SMAN Suka Jaya mendapat predikat sebagai juara umum Patriot Volunteer Festival. Patriot Volunteer Festival merupakan kegiatan kompetisi PMR Wira yang diselenggarakan oleh Perguruan Tinggi STMIK Widya Pratama. Menurut penyelenggara acara tersebut dilaksanakan sebagai ajang silaturahmi, melatih keterampilan, menyiapkan jiwa para relawan, menambah ilmu sekaligus memperingati hari Palang Merah Indonesia 17 September.')">Baca selengkapnya...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/berita2.jpeg" class="card-img-top" alt="Berita 2">
+          <div class="card-body">
+            <p class="card-text">Ratusan Anggota PMR Dilantik, Disertai Aksi Tanam Cemara...</p>
+            <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Ratusan Anggota PMR Dilantik, Disertai Aksi Tanam Cemara</strong><br>Dalam suasana penuh semangat dan kepedulian, ratusan anggota Palang Merah Remaja se-Kabupaten secara resmi dilantik. Acara pelantikan ini tidak hanya menjadi momen bersejarah bagi para anggota PMR. Uniknya, acara juga dipadukan dengan aksi nyata dalam rangka menjaga kelestarian lingkungan. Seluruh peserta turut serta dalam kegiatan penanaman bibit pohon cemara laut di sepanjang garis pantai. Kegiatan ini menunjukkan komitmen kuat para generasi muda dalam membangun kepedulian terhadap lingkungan hidup.')">Baca selengkapnya...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/kegiatan2.jpeg" class="card-img-top" alt="Kegiatan 2">
+          <div class="card-body">
+            <p class="card-text">PMR Wira Meningkatkan Kesadaran Hidup Sehat Melalui Trias UKS dan PHBS...</p>
+            <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>PMR Wira Meningkatkan Kesadaran Hidup Sehat Melalui Trias UKS dan PHBS</strong><br>Kegiatan dimulai dengan pengenalan materi Trias UKS yang mencakup layanan kesehatan, pendidikan kesehatan, dan lingkungan sekolah yang sehat. Anggota PMR diajarkan mengenai pentingnya menjaga kebersihan diri dan lingkungan sekolah sebagai bagian dari mendukung kesehatan bersama. Setelah itu, materi PHBS dibahas secara interaktif, di mana siswa diajak untuk memahami langkah-langkah sederhana dalam menjaga kebersihan, seperti mencuci tangan, menjaga kebersihan kuku, dan memastikan asupan makanan bergizi. Acara dilanjutkan dengan sesi senam sekolah sehat yang dipandu oleh pembina, menciptakan suasana yang penuh semangat. Senam ini tidak hanya berfungsi sebagai kegiatan fisik tetapi juga menanamkan pentingnya kebugaran bagi kesehatan tubuh.')">Baca selengkapnya...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contentModalLabel">Detail Informasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalContent">Konten akan ditampilkan di sini...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showDetails(content) {
+      document.getElementById('modalContent').innerHTML = content; // Gunakan innerHTML
+      const modal = new bootstrap.Modal(document.getElementById('contentModal'));
+      modal.show();
+    }
+
+
+    function changeContent(type, button) {
+      const contentGrid = document.getElementById("content-grid");
+      const buttons = document.querySelectorAll('.category-buttons button');
+
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      let contentHTML = "";
+      if (type === "prestasi") {
+        contentHTML = `
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/prestasi1.jpeg" class="card-img-top" alt="Prestasi 1">
+            <div class="card-body">
+              <p class="card-text">PMR Wira SMAN Suka Jaya Juara Umum Wahana Jumpa Prestasi Tingkat Nasional...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>PMR Wira SMAN Suka Jaya Juara Umum Wahana Jumpa Prestasi Tingkat Nasional</strong><br>Palang Merah Remaja (PMR) SMAN Suka Jaya meraih prestasi yang membanggakan sebagai Juara Umum dalam kegiatan Wahana Jumpa Prestasi Tingkat Nasional yang diselenggarakan dari tanggal 16 – 24 November 2024 secara daring. Pada ajang tersebut tim PMR berhasil meraih Juara 1 dan 2 lomba Pertolongan Pertama, juara 2 dan 3 lomba Smart Volunteer. Wahana Jumpa Prestasi merupakan wahana untuk menumbuhkan jiwa kreatif yang berprestasi dalam kesatuan energi di masa pandemi. Wahana jumpa prestasi juga salah satu program unggulan dari KSR PMI Unit Setempat.')">Baca selengkapnya...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/prestasi2.jpeg" class="card-img-top" alt="Prestasi 2">
+            <div class="card-body">
+              <p class="card-text">Festival Relawan Patriot, PMR Wira SMAN Suka Jaya Juara Umum...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Festival Relawan Patriot, PMR Wira SMAN Suka Jaya Juara Umum</strong><br>Palang Merah Remaja (PMR) Wira Satuan SMA Negeri Suka Jaya berhasil meraih predikat juara umum dalam kegiatan Patriot Volunteer Festival tahun 2024 PMR tingkat se-Karisidenan. Dari tiga kategori yang dilombakan, menyabet juara 2 kategori Pendidikan Remaja Sebaya (PRS) yang diraih oleh Nabila Shinta dan Alya Rosadiana. Juara 1 kategori Festival Relawan Duta Patriot diraih oleh Dewi Zulfa Kamila. Hasil perolehan tersebut kontingen PMR Wira Unit SMAN Suka Jaya mendapat predikat sebagai juara umum Patriot Volunteer Festival. Patriot Volunteer Festival merupakan kegiatan kompetisi PMR Wira yang diselenggarakan oleh Perguruan Tinggi STMIK Widya Pratama. Menurut penyelenggara acara tersebut dilaksanakan sebagai ajang silaturahmi, melatih keterampilan, menyiapkan jiwa para relawan, menambah ilmu sekaligus memperingati hari Palang Merah Indonesia 17 September.')">Baca selengkapnya...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/prestasi3.jpeg" class="card-img-top" alt="Prestasi 3">
+            <div class="card-body">
+              <p class="card-text">PMR WIRA SMAN SUKA JAYA PERTAHANKAN JUARA UMUM LOMPAMAR XXI DI SIDOARJO...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>PMR WIRA SMAN SUKA JAYA PERTAHANKAN JUARA UMUM LOMPAMAR XXI DI SIDOARJO</strong><br>Helatan tahunan Lomba Palang Merah Remaja (LOMPAMAR) XXI tahun 2024 resmi berakhir membanggakan. PMR Wira SMAN SUKA JAYA kembali berjaya mempertahankan gelar Juara Umum dengan raihan skor terbanyak hasil dari kejuaraan yang didapat. PMR WIRA SUKA JAYA berhasil menyabet lima piala kejuaraan dan banyak penghargaan dari delapan bidang lomba yang diikuti. Bidang lomba yang dikompetisikan, meliputi tujuh bidang Travelling, Cerdas Tangkas, Praktik Pertolongan Pertama, dan PMR Favorit. Lima belas peserta dari PMR bertanding bersama dengan 39 kontingen PMR Madya dan 44 kontingen PMR Wira dari sekolah-sekolah pilihan yang ada.')">Baca selengkapnya...</a>
+
+            </div>
+          </div>
+        </div>`;
+      } else if (type === "berita") {
+        contentHTML = `
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/berita1.jpeg" class="card-img-top" alt="Berita 1">
+            <div class="card-body">
+              <p class="card-text">30 Tim Adu Ketangkasan di Lomba Kecakapan PMR...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>30 Tim Adu Ketangkasan di Lomba Kecakapan PMR</strong><br>Lomba ini mengambil tema meningkatkan kreatifitas, cakap dan terampil relawan Palang Merah Remaja. Sebanyak 30 tim ambil bagian. Terdiri dari 6 tingkat mula, 13 tingkat madya dan 12 tingkat wira, dengan jumlah peserta mencapai 223 orang. Melalui lomba ini diharapkan relawan dapat menunjukkan kreatifitas, keterampilan dan kecakapan dalam membentuk calon relawan yang peduli tentang 7 prinsip dasar kepalangmerahan. Yaitu peduli tentang kemanusiaan, kesamaan, lingkungan dan lain-lain. Calon relawan tidak hanya cukup dengan peduli, tetapi juga harus memiliki ilmunya. Seperti ilmu pertolongan pertama untuk membantu orang yang mengalami kecelakaan. Tanpa ilmu, dikhawatirkan pertolongan yang diberikan justru bisa menjadi fatal.')">Baca selengkapnya...</a>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/berita2.jpeg" class="card-img-top" alt="Berita 2">
+            <div class="card-body">
+              <p class="card-text">Ratusan Anggota PMR Dilantik, Disertai Aksi Tanam Cemara...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Ratusan Anggota PMR Dilantik, Disertai Aksi Tanam Cemara</strong><br>Dalam suasana penuh semangat dan kepedulian, ratusan anggota Palang Merah Remaja se-Kabupaten secara resmi dilantik. Acara pelantikan ini tidak hanya menjadi momen bersejarah bagi para anggota PMR. Uniknya, acara juga dipadukan dengan aksi nyata dalam rangka menjaga kelestarian lingkungan. Seluruh peserta turut serta dalam kegiatan penanaman bibit pohon cemara laut di sepanjang garis pantai. Kegiatan ini menunjukkan komitmen kuat para generasi muda dalam membangun kepedulian terhadap lingkungan hidup.')">Baca selengkapnya...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/berita3.jpeg" class="card-img-top" alt="Berita 3">
+            <div class="card-body">
+              <p class="card-text">Ratusan Anggota PMR Ikuti Latihan Gabungan...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Ratusan Anggota PMR Ikuti Latihan Gabungan</strong><br>Kegiatan ini meningkatkan kapasitas anggota Palang Merah Remaja digelar selama dua hari. Kegiatan diikuti 387 peserta terdiri dari PMR Madya, PMR Wira serta panitia.  Pelatihan diisi dengan berbagai materi kegiatan seperti dinamika kelompok, tujuh materi dasar PMR, manajemen PMR, inklusi dan antikekerasan, perubahan iklim, pentas seni, sarasehan hingga simulasi kepalangmerahan.')">Baca selengkapnya...</a>
+
+            </div>
+          </div>
+        </div>`;
+      } else if (type === "kegiatan") {
+        contentHTML = `
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/kegiatan1.jpeg" class="card-img-top" alt="Kegiatan 1">
+            <div class="card-body">
+              <p class="card-text">Anggota PMR Wira Ikuti Uji Kecakapan...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Anggota PMR Wira Ikuti Uji Kecakapan</strong><br>Sebagai upaya meningkatkan pengetahuan sebagai PMR Wira. Puluhan anggota PMR Wira mengikuti ujian kecakapan. Hal itu untuk menambah pengetahuan dan ketrampilan dalam menanggani bencana. Uji kecakapan tersebut diikuti para peserta Palang Merah Remaja (PMR) Wira. Untuk uji kecakapan yang harus diikuti antara lain materi gerakan PMI, kepemimpinan, pertolongan pertana, kebersihan dan kesehatan, kesehatan remaja, kesiapsiagaan bencana, donor darah. Uji kecakapan tersebut bertujuan untuk mengidentifikasi tingkat pengetahuan dan ketrampilan materi. Kemudian menerapkan tri bakti PMR, memberikan bentuk pengakuan dan penghargaan formal atas kemampuan yang dimiliki anggota.')">Baca selengkapnya...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/kegiatan2.jpeg" class="card-img-top" alt="Kegiatan 2">
+            <div class="card-body">
+              <p class="card-text">PMR Wira Meningkatkan Kesadaran Hidup Sehat Melalui Trias UKS dan PHBS...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>PMR Wira Meningkatkan Kesadaran Hidup Sehat Melalui Trias UKS dan PHBS</strong><br>Kegiatan dimulai dengan pengenalan materi Trias UKS yang mencakup layanan kesehatan, pendidikan kesehatan, dan lingkungan sekolah yang sehat. Anggota PMR diajarkan mengenai pentingnya menjaga kebersihan diri dan lingkungan sekolah sebagai bagian dari mendukung kesehatan bersama. Setelah itu, materi PHBS dibahas secara interaktif, di mana siswa diajak untuk memahami langkah-langkah sederhana dalam menjaga kebersihan, seperti mencuci tangan, menjaga kebersihan kuku, dan memastikan asupan makanan bergizi. Acara dilanjutkan dengan sesi senam sekolah sehat yang dipandu oleh pembina, menciptakan suasana yang penuh semangat. Senam ini tidak hanya berfungsi sebagai kegiatan fisik tetapi juga menanamkan pentingnya kebugaran bagi kesehatan tubuh.')">Baca selengkapnya...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/kegiatan3.jpeg" class="card-img-top" alt="Kegiatan 3">
+            <div class="card-body">
+              <p class="card-text">Sosialisasi Ekstrakulikuler PMR, Diminati Ratusan Siswa Baru...</p>
+              <a href="#" class="text-decoration-none text-primary" onclick="showDetails('<strong>Sosialisasi Ekstrakulikuler PMR, Diminati Ratusan Siswa Baru</strong><br>Sosialisasi Palang Merah Remaja (PMR) adalah kegiatan yang bertujuan untuk meningkatkan pemahaman relawan tentang peran PMR dalam kemanusiaan dan pelayanan masyarakat. Dalam kegiatan ini, relawan juga diberikan materi tentang pertolongan pertama dan cara mengobatinya.  Minat siswa baru untuk menjadi relawan PMI di Palang Merah Remaja (PMR) cukup tinggi. Antusiasme itu terlihat saat PMR Wira melakukan sosialisasi kegiatan ekstrakurikuler tentang PMR bersama PMI. Siswa baru tampak bersemangat saat mengikuti acara yang digelar di ruang aula sekolah tersebut. PMR merupakan bagian dari PMI yang merupakan Organisasi Kemanusiaan Terbesar dan di Lindungi oleh Undang - undang. Kegiatan Sosialisasi dan pengenalan dilakukan didepan siswa baru. Hal ini dilakukan untuk mengenalkan apa itu PMR kepada siswa baru, sekaligus menjadi wadah bagi anggota PMR untuk direkrut menjadi calon Anggota baru Relawan Muda PMI. Dalam sosialisasinya Fasilititator PMI mengenalkan kegiatan PMR sekaligus memperkenalkan tentang tugas, serta fungsi PMR di lingkup sekolah dan keluarga.')">Baca selengkapnya...</a>
+
+            </div>
+          </div>
+        </div>`;
+      }
+
+      contentGrid.innerHTML = contentHTML;
+    }
+
+    function confirmLogout(event) {
+      event.preventDefault();
+      if (confirm("Anda akan logout. Apakah Anda yakin?")) {
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
